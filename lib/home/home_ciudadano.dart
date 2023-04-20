@@ -3,6 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../map/ui/routes/pages.dart';
+import '../map/ui/routes/routes.dart';
+
 
 
 class HomeCiudadanoScreen extends StatelessWidget{
@@ -38,7 +41,10 @@ class HomeCiudadanoScreen extends StatelessWidget{
                       color: Color(0xFFD8D7D6),
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20.0)),
                       child: Image.asset('assets/imgs/ubicacion.png', height: height*0.10,),
-                      onPressed: () {},
+                      onPressed: () {
+                        initialRoute: Routes.SPLASH;
+                        routes: appRoutes();
+                      },
                     ),
                   ),
                   SizedBox(height: 50,),
