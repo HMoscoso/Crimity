@@ -1,3 +1,5 @@
+import 'package:crimityapp/map/ui/splash/splash_controller.dart';
+import 'package:crimityapp/map/ui/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:getwidget/getwidget.dart';
@@ -31,23 +33,23 @@ class HomeCiudadanoScreen extends StatelessWidget{
                   ],),
                   
 
-                  SizedBox(height: 30,),
+                  const SizedBox(height: 30),
 
                   Padding(padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child:MaterialButton(
                       elevation: 0.0,
                       minWidth: 300.0,
                       height: 150.0,
-                      color: Color(0xFFD8D7D6),
+                      color: const Color(0xFFD8D7D6),
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20.0)),
                       child: Image.asset('assets/imgs/ubicacion.png', height: height*0.10,),
                       onPressed: () {
-                        initialRoute: Routes.SPLASH;
-                        routes: appRoutes();
+                        //initialRoute: Routes.SPLASH;
+                        //routes: appRoutes();
                       },
                     ),
                   ),
-                  SizedBox(height: 50,),
+                  const SizedBox(height: 50),
 
                   Padding(padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: OutlinedButton(

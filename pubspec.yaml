@@ -14,13 +14,14 @@ dependencies:
   flutter_svg: ^2.0.5
 
   cupertino_icons: ^1.0.2
+  http: ^0.13.5
+  provider: ^6.0.5
   responsive: ^0.3.11+11
   flutter_login: ^4.1.1
   google_fonts: ^4.0.3
   getwidget: ^3.0.1
   font_awesome_flutter: ^10.4.0
   google_maps_flutter: ^2.2.5
-  provider: ^6.0.5
   flutter_cache_manager: ^3.1.2
   permission_handler: ^6.1.3
   geolocator: ^8.0.1

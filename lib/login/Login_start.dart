@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:provider/provider.dart';
 import '../home/home_ciudadano.dart';
-
-
+import '../providers/usuario_provider.dart';
 
 class Login_start extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     var height = MediaQuery.of(context).size.height;
+    final usuarioProvider = Provider.of<usuario_provider>(context);
+    var txtemail = TextEditingController();
+    var txtpassword = TextEditingController();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -18,8 +21,8 @@ class Login_start extends StatelessWidget{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image(image: AssetImage("assets/imgs/logo.PNG"), height: height * 0.10,),
-              SizedBox(height: 40,),
+              Image(image: const AssetImage("assets/imgs/logo.PNG"), height: height * 0.10,),
+              const SizedBox(height: 40),
 
               Text(
                 'Iniciar Sesion',
@@ -27,9 +30,9 @@ class Login_start extends StatelessWidget{
                   fontSize: 52,
                 ),
               ),
-              SizedBox(height: 10,),
-              Text("Bienvenido. Ingresa tu cuenta"),
-              SizedBox(height: 70,),
+              const SizedBox(height: 10),
+              const Text("Bienvenido. Ingresa tu cuenta"),
+              const SizedBox(height: 70),
 
               Padding(padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Container(
@@ -42,7 +45,8 @@ class Login_start extends StatelessWidget{
                   autovalidateMode: AutovalidateMode.onUserInteraction,
 
                   child: TextFormField(
-                    decoration: InputDecoration(
+                    controller: txtemail,
+                    decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.email_outlined),
                       border: InputBorder.none,
                       labelText: 'Correo Electronico',
@@ -59,7 +63,7 @@ class Login_start extends StatelessWidget{
                   ),
                 ),
               ),),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20),
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -72,8 +76,9 @@ class Login_start extends StatelessWidget{
                   child: Form(
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     child: TextFormField (
+                      controller: txtpassword,
                       obscureText: true,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         prefixIcon: Icon(Icons.password),
                         border: InputBorder.none,
                         labelText: 'Contraseña',
@@ -87,7 +92,7 @@ class Login_start extends StatelessWidget{
                     ),
                   ),
                 ),),
-              SizedBox(height: 40,),
+              const SizedBox(height: 40),
 
               Padding(padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child:MaterialButton(
@@ -105,14 +110,23 @@ class Login_start extends StatelessWidget{
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, 'homeciudadano');},
+                  var usuarios = usuarioProvider.usuarios;
+                  if(usuarios.where((e) => e.email == txtemail.text).length > 0 &&
+                      usuarios.where((e) => e.password == txtpassword.text).length > 0) {
+                    print('wiiiii');
+                  }
+                  else {
+                    print('buuuuu');
+                  }
+                  //Navigator.pushReplacementNamed(context, 'homeciudadano');
+                },
               ),
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
                     '¿Olvidaste la contraseña?',
                     style: TextStyle(
@@ -125,24 +139,24 @@ class Login_start extends StatelessWidget{
 
               Row(children: <Widget>[
                 Expanded(
-                  child: new Container(
+                  child: Container(
                       margin: const EdgeInsets.only(left: 25.0, right: 20.0),
-                      child: Divider(
+                      child: const Divider(
                         color: Colors.black,
                         height: 36,
                       )),
                 ),
                 Text("ó continuar con"),
                 Expanded(
-                  child: new Container(
+                  child: Container(
                       margin: const EdgeInsets.only(left: 20.0, right: 25.0),
-                      child: Divider(
+                      child: const Divider(
                         color: Colors.black,
                         height: 36,
                       )),
                 ),
               ]),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -154,7 +168,7 @@ class Login_start extends StatelessWidget{
                           side: BorderSide(color: Theme.of(context).cardColor),
                           padding: EdgeInsets.symmetric(vertical: 15.0)
                       ),
-                      child:Icon(FontAwesomeIcons.facebook)),
+                      child:const Icon(FontAwesomeIcons.facebook)),
                   const SizedBox(width: 40.0,),
                   OutlinedButton(
                         onPressed: (){
@@ -166,11 +180,11 @@ class Login_start extends StatelessWidget{
                             shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
                             padding: EdgeInsets.symmetric(vertical: 15.0)
                         ),
-                  child:Icon(FontAwesomeIcons.google)),
+                  child:const Icon(FontAwesomeIcons.google)),
 
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -181,7 +195,7 @@ class Login_start extends StatelessWidget{
                       color:  Theme.of(context).accentColor,
                     ),
                   ),
-                  Text(
+                  const Text(
                       '  Registrate',
                   style: TextStyle(
                     color: Colors.amber,
