@@ -8,8 +8,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../map/ui/routes/pages.dart';
 import '../map/ui/routes/routes.dart';
 
-
-
 class HomeCiudadanoScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context){

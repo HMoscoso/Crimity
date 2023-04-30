@@ -16,6 +16,7 @@ class Login_start extends StatelessWidget{
 
     return Scaffold(
       backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -43,7 +44,6 @@ class Login_start extends StatelessWidget{
                 ),
                 child: Form(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-
                   child: TextFormField(
                     controller: txtemail,
                     decoration: const InputDecoration(
@@ -55,7 +55,7 @@ class Login_start extends StatelessWidget{
                     validator: (value) {
                       String pattern =
                           r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-                      RegExp regExp = new RegExp(pattern);
+                      RegExp regExp = RegExp(pattern);
                       return regExp.hasMatch(value ?? '')
                           ? null
                           : '    Ingrese un correo valido';
@@ -113,12 +113,11 @@ class Login_start extends StatelessWidget{
                   var usuarios = usuarioProvider.usuarios;
                   if(usuarios.where((e) => e.email == txtemail.text).length > 0 &&
                       usuarios.where((e) => e.password == txtpassword.text).length > 0) {
-                    print('wiiiii');
+                    Navigator.pushReplacementNamed(context, 'homeciudadano');
                   }
                   else {
                     print('buuuuu');
                   }
-                  //Navigator.pushReplacementNamed(context, 'homeciudadano');
                 },
               ),
               ),
