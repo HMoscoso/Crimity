@@ -61,7 +61,6 @@ class MyApp extends StatelessWidget {
               ),
           )
         ),
-        home: AnimatedSplashScreen(
           splash: StartScreen(),
           splashIconSize: double.infinity,
           nextScreen: SplashScreen(),
