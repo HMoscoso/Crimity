@@ -7,6 +7,8 @@ import '../home/home_ciudadano.dart';
 import '../providers/usuario_provider.dart';
 
 class Login_start extends StatelessWidget{
+  const Login_start({super.key});
+
   @override
   Widget build(BuildContext context){
     var height = MediaQuery.of(context).size.height;
@@ -134,7 +136,7 @@ class Login_start extends StatelessWidget{
                     ),),
                 ],
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
               Row(children: <Widget>[
                 Expanded(
@@ -145,7 +147,7 @@ class Login_start extends StatelessWidget{
                         height: 36,
                       )),
                 ),
-                Text("ó continuar con"),
+                const Text("ó continuar con"),
                 Expanded(
                   child: Container(
                       margin: const EdgeInsets.only(left: 20.0, right: 25.0),
@@ -165,9 +167,9 @@ class Login_start extends StatelessWidget{
                           shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
                           foregroundColor: Colors.blue,
                           side: BorderSide(color: Theme.of(context).cardColor),
-                          padding: EdgeInsets.symmetric(vertical: 15.0)
+                          padding: const EdgeInsets.symmetric(vertical: 15.0)
                       ),
-                      child:const Icon(FontAwesomeIcons.facebook)),
+                      child: const Icon(FontAwesomeIcons.facebook)),
                   const SizedBox(width: 40.0,),
                   OutlinedButton(
                         onPressed: (){
@@ -177,9 +179,9 @@ class Login_start extends StatelessWidget{
                             foregroundColor: Colors.red,
                             side: BorderSide(color: Theme.of(context).cardColor),
                             shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
-                            padding: EdgeInsets.symmetric(vertical: 15.0)
+                            padding: const EdgeInsets.symmetric(vertical: 15.0)
                         ),
-                  child:const Icon(FontAwesomeIcons.google)),
+                  child: const Icon(FontAwesomeIcons.google)),
 
                 ],
               ),

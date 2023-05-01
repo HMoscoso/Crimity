@@ -12,7 +12,7 @@ class usuario_provider with ChangeNotifier {
   }
 
   getUsuarios() async {
-    final url = Uri.http(urlapi, 'api/usuarios');
+    final url = Uri.http(urlapi, 'api/usuarios/login');
     final resp = await http.get(url, headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Credentials": "true",

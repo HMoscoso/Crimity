@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
@@ -11,13 +10,14 @@ class SigninScreen extends StatelessWidget{
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
         backgroundColor: Colors.white,
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image(image: AssetImage("assets/imgs/logo.PNG"), height: height * 0.10,),
-                  SizedBox(height: 30,),
+                  Image(image: const AssetImage("assets/imgs/logo.PNG"), height: height * 0.10,),
+                  const SizedBox(height: 30,),
 
                   Text(
                     'Crear una cuenta',
@@ -25,7 +25,7 @@ class SigninScreen extends StatelessWidget{
                       fontSize: 45,
                     ),
                   ),
-                  SizedBox(height: 50,),
+                  const SizedBox(height: 50,),
 
                   Padding(padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
@@ -34,8 +34,8 @@ class SigninScreen extends StatelessWidget{
                         border: Border.all(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 20.0),
 
                         child: TextField(
                           decoration: InputDecoration(
@@ -46,7 +46,7 @@ class SigninScreen extends StatelessWidget{
                         ),
                       ),
                     ),),
-                  SizedBox(height: 15,),
+                  const SizedBox(height: 15,),
 
                   Padding(padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
@@ -55,8 +55,8 @@ class SigninScreen extends StatelessWidget{
                         border: Border.all(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 20.0),
 
                         child: TextField(
                           decoration: InputDecoration(
@@ -67,7 +67,7 @@ class SigninScreen extends StatelessWidget{
                         ),
                       ),
                     ),),
-                  SizedBox(height: 15,),
+                  const SizedBox(height: 15,),
 
                   Padding(padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child: Container(
@@ -76,8 +76,8 @@ class SigninScreen extends StatelessWidget{
                         border: Border.all(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 20.0),
 
                         child: TextField(
                           decoration: InputDecoration(
@@ -88,7 +88,7 @@ class SigninScreen extends StatelessWidget{
                         ),
                       ),
                     ),),
-                  SizedBox(height: 15,),
+                  const SizedBox(height: 15,),
 
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -98,8 +98,8 @@ class SigninScreen extends StatelessWidget{
                         border: Border.all(color: Colors.white),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 20.0),
                         child: TextField(
                           obscureText: true,
                           decoration: InputDecoration(
@@ -110,7 +110,7 @@ class SigninScreen extends StatelessWidget{
                         ),
                       ),
                     ),),
-                  SizedBox(height: 30,),
+                  const SizedBox(height: 30,),
 
                   Padding(padding: const EdgeInsets.symmetric(horizontal: 25.0),
                     child:MaterialButton(
@@ -127,31 +127,33 @@ class SigninScreen extends StatelessWidget{
                             fontSize: 20.0
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+
+                      },
                     ),
                   ),
-                  SizedBox(height: 15,),
+                  const SizedBox(height: 15,),
 
                   Row(children: <Widget>[
                     Expanded(
-                      child: new Container(
+                      child: Container(
                           margin: const EdgeInsets.only(left: 25.0, right: 20.0),
-                          child: Divider(
+                          child: const Divider(
                             color: Colors.black,
                             height: 36,
                           )),
                     ),
-                    Text("ó continuar con"),
+                    const Text("ó continuar con"),
                     Expanded(
-                      child: new Container(
+                      child: Container(
                           margin: const EdgeInsets.only(left: 20.0, right: 25.0),
-                          child: Divider(
+                          child: const Divider(
                             color: Colors.black,
                             height: 36,
                           )),
                     ),
                   ]),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -161,9 +163,9 @@ class SigninScreen extends StatelessWidget{
                               shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
                               foregroundColor: Colors.blue,
                               side: BorderSide(color: Theme.of(context).cardColor),
-                              padding: EdgeInsets.symmetric(vertical: 15.0)
+                              padding: const EdgeInsets.symmetric(vertical: 15.0)
                           ),
-                          child:Icon(FontAwesomeIcons.facebook)),
+                          child:const Icon(FontAwesomeIcons.facebook)),
                       const SizedBox(width: 40.0,),
                       OutlinedButton(
                           onPressed: (){},
@@ -172,13 +174,13 @@ class SigninScreen extends StatelessWidget{
                               foregroundColor: Colors.red,
                               side: BorderSide(color: Theme.of(context).cardColor),
                               shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
-                              padding: EdgeInsets.symmetric(vertical: 15.0)
+                              padding: const EdgeInsets.symmetric(vertical: 15.0)
                           ),
-                          child:Icon(FontAwesomeIcons.google)),
+                          child:const Icon(FontAwesomeIcons.google)),
 
                     ],
                   ),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -189,7 +191,7 @@ class SigninScreen extends StatelessWidget{
                           color:  Theme.of(context).accentColor,
                         ),
                       ),
-                      Text(
+                      const Text(
                         '  Inicia Sesion',
                         style: TextStyle(
                           color: Colors.amber,
