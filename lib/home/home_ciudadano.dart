@@ -1,3 +1,4 @@
+import 'package:crimityapp/home/perfil.dart';
 import 'package:crimityapp/map/ui/splash/splash_controller.dart';
 import 'package:crimityapp/map/ui/splash/splash_page.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,17 @@ class HomeCiudadanoScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     var height = MediaQuery.of(context).size.height;
-    return Scaffold(
+    return WillPopScope(
+        onWillPop: () async {
+      return true;
+    },
+      child:Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+        ),
+        drawer: const NavigationDrawer(),
+
         backgroundColor: Color(0xFFF5F5F5),
         body: SafeArea(
             child: Center(
@@ -22,7 +33,7 @@ class HomeCiudadanoScreen extends StatelessWidget{
                   Row(children: <Widget>[
                     SizedBox(width: 50.0,),
                     Text(
-                      'Hola, ',
+                      'Hola, Andre ',
                       style: GoogleFonts.robotoMono(
                         fontSize: 30,
                       ),
@@ -90,7 +101,7 @@ class HomeCiudadanoScreen extends StatelessWidget{
                         SizedBox(width: 20),
                         Icon(FontAwesomeIcons.vrCardboard),
                         SizedBox(width: 30),
-                        Text('Alertas.', style: TextStyle(color: Theme.of(context).accentColor,
+                        Text('Comunidad.', style: TextStyle(color: Theme.of(context).accentColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 17.0),),
                       ],
@@ -115,7 +126,7 @@ class HomeCiudadanoScreen extends StatelessWidget{
                         SizedBox(width: 20),
                         Icon(FontAwesomeIcons.phone),
                         SizedBox(width: 30),
-                        Text('Registrar solicitud.', style: TextStyle(color: Theme.of(context).accentColor,
+                        Text('Registrar delito.', style: TextStyle(color: Theme.of(context).accentColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 17.0),),
                       ],
@@ -131,6 +142,97 @@ class HomeCiudadanoScreen extends StatelessWidget{
               ),
             )
         )
+      )
     );
   }
 }
+
+class NavigationDrawer extends StatelessWidget{
+  const NavigationDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context)=> Drawer(
+    child: SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          buildHeader(context),
+          buildMenuItems(context),
+        ],
+      )
+    ),
+  );
+
+  Widget buildHeader(BuildContext context) => Container(
+    color: Color(0xFFFFEC84),
+    padding: EdgeInsets.only(
+      top: 24 + MediaQuery.of(context).padding.top,
+      bottom: 24,
+    ),
+    child: InkWell(
+      onTap: (){
+        Navigator.pop(context);
+        
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const PerfilScreen()));
+    },
+    child: Column(
+      children: const[
+        CircleAvatar(
+          radius: 52,
+          backgroundImage: NetworkImage('https://images.unsplash.com/photo-1533794299596-8e62c88ff975?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'),
+        ),
+        SizedBox(height: 12),
+        Text(
+          'Andre Diaz',
+          style:TextStyle(fontSize: 28, color: Colors.black87,),
+        ),
+        Text('andrediaz@gmail.com',
+        style: TextStyle(fontSize: 16, color: Colors.black87,)),
+      ],
+    )
+  ),
+  );
+
+  Widget buildMenuItems(BuildContext context) => Container(
+    padding: const EdgeInsets.all(24),
+    child: Wrap(
+      runSpacing: 16,
+
+    children: [
+      ListTile(
+        leading: const Icon(Icons.home_outlined),
+        title: const Text('Home'),
+        onTap: () {
+          Navigator.pop(context);},
+      ),
+      ListTile(
+        leading: const Icon(Icons.home_outlined),
+        title: const Text('Delitos en mi ubicacion'),
+        onTap: () {},
+      ),
+      ListTile(
+        leading: const Icon(Icons.home_outlined),
+        title: const Text('Registrar delito'),
+        onTap: () {},
+      ),
+      const Divider(color: Colors.black,),
+      ListTile(
+        leading: const Icon(Icons.home_outlined),
+        title: const Text('Mi Perfil'),
+        onTap: () {},
+      ),
+      ListTile(
+        leading: const Icon(Icons.home_outlined),
+        title: const Text('Mi Comunidad'),
+        onTap: () {},
+      ),
+      const Divider(color: Colors.black,),
+      ListTile(
+        leading: const Icon(Icons.home_outlined),
+        title: const Text('Prediccion de Delitos'),
+        onTap: () {},
+      ),
+    ],
+    )
+  );
+  }
