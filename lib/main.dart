@@ -1,10 +1,13 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:crimityapp/login/login.dart';
 import 'package:crimityapp/prediccion_delito/predicciondelitos.dart';
 import 'package:crimityapp/providers/usuario_provider.dart';
 import 'package:crimityapp/splash/splash_screen.dart';
 import 'package:crimityapp/splash/splash_screen2.dart';
 import 'package:crimityapp/splash/splash_screen3.dart';
+import 'package:crimityapp/splash/start.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'home/home_ciudadano.dart';
 import 'home/home_policia.dart';
@@ -30,7 +33,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => usuario_provider()),
       ],
       child: MaterialApp(
+
         title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         routes: {
           'login': (context) => LoginScreen(),
           'register':(context) => SigninScreen(),
@@ -56,7 +61,12 @@ class MyApp extends StatelessWidget {
               ),
           )
         ),
-        home: LoginScreen(),
+        home: AnimatedSplashScreen(
+          splash: StartScreen(),
+          splashIconSize: double.infinity,
+          nextScreen: SplashScreen(),
+          splashTransition: SplashTransition.fadeTransition,
+        ),
       ),
     );
   }

@@ -16,7 +16,25 @@ class Login_start extends StatelessWidget{
     var txtemail = TextEditingController();
     var txtpassword = TextEditingController();
 
-    return Scaffold(
+    return WillPopScope(
+        onWillPop: () async {
+      return true;
+    },
+    child:Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black54,
+          ),
+        ),
+          centerTitle: true,
+        ),
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -208,6 +226,7 @@ class Login_start extends StatelessWidget{
           ),
         )
       )
+    )
     );
   }
 }

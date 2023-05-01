@@ -1,4 +1,7 @@
+import 'package:crimityapp/login/signin.dart';
 import 'package:flutter/material.dart';
+
+import 'Login_start.dart';
 
 class LoginScreen extends StatelessWidget{
   const LoginScreen({Key? key}) : super(key: key);
@@ -23,7 +26,9 @@ class LoginScreen extends StatelessWidget{
               children: [
                 Expanded(child:
                 OutlinedButton(onPressed: (){
-                  Navigator.pushReplacementNamed(context, 'loginst');},
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                    return const Login_start();
+                  },));},
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
                       foregroundColor: Theme.of(context).accentColor,
@@ -35,12 +40,12 @@ class LoginScreen extends StatelessWidget{
                 Expanded(
                   child: ElevatedButton(
                       onPressed: (){
-                    Navigator.pushReplacementNamed(context, 'register');
-                      },
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
-                        padding: EdgeInsets.symmetric(vertical: 15.0)
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                      return SigninScreen();
+                      },));},
+                      style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
+                      padding: EdgeInsets.symmetric(vertical: 15.0)
                       ),
                       child: Text("Registrarse")),
                 )

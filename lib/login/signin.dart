@@ -8,8 +8,25 @@ class SigninScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     var height = MediaQuery.of(context).size.height;
-    return Scaffold(
-        backgroundColor: Colors.white,
+    return WillPopScope(
+        onWillPop: () async {
+      return true;
+    },
+    child:Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        leading: IconButton(
+        onPressed: () {
+        Navigator.of(context).pop();
+        },
+        icon: Icon(
+        Icons.arrow_back_ios,
+        color: Colors.black54,
+        ),
+      ),
+    centerTitle: true,
+    ),backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
         body: SafeArea(
             child: Center(
@@ -203,6 +220,7 @@ class SigninScreen extends StatelessWidget{
               ),
             )
         )
+    ),
     );
   }
 }
