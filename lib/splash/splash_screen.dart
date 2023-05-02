@@ -1,3 +1,4 @@
+import 'package:crimityapp/home/home_ciudadano.dart';
 import 'package:crimityapp/login/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ class SplashScreen extends StatelessWidget {
             child: TextButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                  return const LoginScreen();
+                  return HomeCiudadanoScreen();
                 },));},
               child: const Text("Skip", style: TextStyle(color: Colors.grey)),
             ),

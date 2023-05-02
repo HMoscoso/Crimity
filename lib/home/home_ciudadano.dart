@@ -6,8 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../map/ui/pages/home/home_page.dart';
 import '../map/ui/routes/pages.dart';
 import '../map/ui/routes/routes.dart';
+import '../profile/profile_screen.dart';
 
 class HomeCiudadanoScreen extends StatelessWidget{
   @override
@@ -172,8 +174,8 @@ class NavigationDrawer extends StatelessWidget{
     child: InkWell(
       onTap: (){
         Navigator.pop(context);
-        
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const PerfilScreen()));
+
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const ProfileScreen()));
     },
     child: Column(
       children: const[
@@ -206,29 +208,33 @@ class NavigationDrawer extends StatelessWidget{
           Navigator.pop(context);},
       ),
       ListTile(
-        leading: const Icon(Icons.home_outlined),
+        leading: const Icon(FontAwesomeIcons.mapLocationDot),
         title: const Text('Delitos en mi ubicacion'),
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const HomePage()));
+        },
       ),
       ListTile(
-        leading: const Icon(Icons.home_outlined),
+        leading: const Icon(FontAwesomeIcons.feather),
         title: const Text('Registrar delito'),
-        onTap: () {},
+        onTap: () {
+  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const ProfileScreen()));},
       ),
       const Divider(color: Colors.black,),
       ListTile(
-        leading: const Icon(Icons.home_outlined),
+        leading: const Icon(FontAwesomeIcons.userTie),
         title: const Text('Mi Perfil'),
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const ProfileScreen()));},
       ),
       ListTile(
-        leading: const Icon(Icons.home_outlined),
+        leading: const Icon(FontAwesomeIcons.addressBook),
         title: const Text('Mi Comunidad'),
         onTap: () {},
       ),
       const Divider(color: Colors.black,),
       ListTile(
-        leading: const Icon(Icons.home_outlined),
+        leading: const Icon(FontAwesomeIcons.chartBar),
         title: const Text('Prediccion de Delitos'),
         onTap: () {},
       ),
