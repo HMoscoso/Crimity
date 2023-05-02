@@ -1,4 +1,5 @@
 import 'package:crimityapp/home/perfil.dart';
+import 'package:crimityapp/map/map.dart';
 import 'package:crimityapp/map/ui/splash/splash_controller.dart';
 import 'package:crimityapp/map/ui/splash/splash_page.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +57,7 @@ class HomeCiudadanoScreen extends StatelessWidget{
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20.0)),
                       child: Image.asset('assets/imgs/ubicacion.png', height: height*0.10,),
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const HomePage()));},
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const MapScreen()));},
                     ),
                   ),
                   const SizedBox(height: 50),

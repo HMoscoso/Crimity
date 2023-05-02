@@ -4,9 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'bar graph/bar_graph.dart';
+
 
 
 class CrimePredictScreen extends StatelessWidget{
+  List<double> weeklySummary = [
+    4.40,
+    2.50,
+    42.42,
+    10.50,
+    100.20,
+    88.99,
+  ];
   @override
   Widget build(BuildContext context){
     var height = MediaQuery.of(context).size.height;
@@ -252,7 +262,7 @@ class CrimePredictScreen extends StatelessWidget{
                             fontSize: 20.0
                         ),
                       ),
-                      onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> BarGraphScreen()));},
+                      onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MyBarGraph(weeklySummary: weeklySummary,)));},
                     ),
                   ),
                   SizedBox(height: 15,),

@@ -17,7 +17,11 @@ class HomePage extends StatelessWidget {
         return controller;
       },
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+        ),
         body: Selector<HomeController, bool>(
           selector: (_,controller) => controller.loading,
           builder: (context, loading, loadingWidget){
