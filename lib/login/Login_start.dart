@@ -2,6 +2,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:http/http.dart' as http;
+
+import '../home/home_ciudadano.dart';
 
 class Login_start extends StatelessWidget{
   const Login_start({super.key});
@@ -121,7 +124,9 @@ class Login_start extends StatelessWidget{
                       fontSize: 20.0
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomeCiudadanoScreen()));
+                },
               ),
               ),
               const SizedBox(height: 15),
@@ -207,8 +212,8 @@ class Login_start extends StatelessWidget{
               )
             ],
           ),
-        )
-      )
+        ),
+      ),
     )
     );
   }
