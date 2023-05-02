@@ -126,7 +126,6 @@ class Login_start extends StatelessWidget{
                 ),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(builder: (context)=> HomeCiudadanoScreen()));
-                  print('wiwi');
                 },
               ),
               ),
