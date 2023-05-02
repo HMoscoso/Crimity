@@ -9,6 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../map/ui/pages/home/home_page.dart';
 import '../map/ui/routes/pages.dart';
 import '../map/ui/routes/routes.dart';
+import '../prediccion_delito/predicciondelitos.dart';
 import '../profile/profile_screen.dart';
 
 class HomeCiudadanoScreen extends StatelessWidget{
@@ -55,16 +56,15 @@ class HomeCiudadanoScreen extends StatelessWidget{
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20.0)),
                       child: Image.asset('assets/imgs/ubicacion.png', height: height*0.10,),
                       onPressed: () {
-                        //initialRoute: Routes.SPLASH;
-                        //routes: appRoutes();
-                      },
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const HomePage()));},
                     ),
                   ),
                   const SizedBox(height: 50),
 
                   Padding(padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CrimePredictScreen()));},
                         style: OutlinedButton.styleFrom(
                             elevation: 0,
                             foregroundColor: Theme.of(context).primaryColor,
