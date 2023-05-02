@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-
 class SigninScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context){
@@ -25,8 +23,9 @@ class SigninScreen extends StatelessWidget{
         color: Colors.black54,
         ),
       ),
-    centerTitle: true,
-    ),backgroundColor: Colors.white,
+        centerTitle: true,
+    ),
+        backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
         body: SafeArea(
             child: Center(

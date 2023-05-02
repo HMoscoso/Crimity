@@ -1,10 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
-import '../home/home_ciudadano.dart';
-import '../providers/usuario_provider.dart';
 
 class Login_start extends StatelessWidget{
   const Login_start({super.key});
@@ -12,14 +9,11 @@ class Login_start extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     var height = MediaQuery.of(context).size.height;
-    final usuarioProvider = Provider.of<usuario_provider>(context);
-    var txtemail = TextEditingController();
-    var txtpassword = TextEditingController();
 
     return WillPopScope(
         onWillPop: () async {
-      return true;
-    },
+          return true;
+        },
     child:Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -37,7 +31,7 @@ class Login_start extends StatelessWidget{
         ),
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -65,7 +59,6 @@ class Login_start extends StatelessWidget{
                 child: Form(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: TextFormField(
-                    controller: txtemail,
                     decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.email_outlined),
                       border: InputBorder.none,
@@ -96,7 +89,6 @@ class Login_start extends StatelessWidget{
                   child: Form(
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     child: TextFormField (
-                      controller: txtpassword,
                       obscureText: true,
                       decoration: const InputDecoration(
                         prefixIcon: Icon(Icons.password),
@@ -129,16 +121,7 @@ class Login_start extends StatelessWidget{
                       fontSize: 20.0
                   ),
                 ),
-                onPressed: () {
-                  var usuarios = usuarioProvider.usuarios;
-                  if(usuarios.where((e) => e.email == txtemail.text).length > 0 &&
-                      usuarios.where((e) => e.password == txtpassword.text).length > 0) {
-                    Navigator.pushReplacementNamed(context, 'homeciudadano');
-                  }
-                  else {
-                    print('buuuuu');
-                  }
-                },
+                onPressed: () {},
               ),
               ),
               const SizedBox(height: 15),

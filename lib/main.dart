@@ -1,7 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:crimityapp/login/login.dart';
 import 'package:crimityapp/prediccion_delito/predicciondelitos.dart';
-import 'package:crimityapp/providers/usuario_provider.dart';
 import 'package:crimityapp/splash/splash_screen.dart';
 import 'package:crimityapp/splash/splash_screen2.dart';
 import 'package:crimityapp/splash/splash_screen3.dart';
@@ -28,10 +27,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => usuario_provider()),
-      ],
+    return Center(
       child: MaterialApp(
 
         title: 'Flutter Demo',
