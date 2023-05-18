@@ -53,7 +53,7 @@ class SplashScreen extends StatelessWidget {
             child: TextButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                  return HomeCiudadanoScreen();
+                  return LoginScreen();
                 },));},
               child: const Text("Skip", style: TextStyle(color: Colors.grey)),
             ),

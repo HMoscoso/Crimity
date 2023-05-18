@@ -79,7 +79,7 @@ class MyBarGraph extends StatelessWidget{
           show: true,
           topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
           rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-          bottomTitles: AxisTitles(sideTitles: SideTitles(showTitles: false, getTitlesWidget:
+          bottomTitles: AxisTitles(sideTitles: SideTitles(showTitles: true, getTitlesWidget:
           getBottomTitles)),
         ),
         barGroups: myBarData.barData
@@ -121,22 +121,22 @@ Widget getBottomTitles (double value, TitleMeta meta) {
   late Widget text;
   switch (value.toInt()){
     case 0:
-      text = const Text('LO', style: style);
+      text = const Text('17:00', style: style);
       break;
     case 1:
-      text = const Text('SMP', style: style);
+      text = const Text('18:00', style: style);
       break;
     case 2:
-      text = const Text('Callao', style: style);
+      text = const Text('19:00', style: style);
       break;
     case 3:
-      text = const Text('Miraflores', style: style);
+      text = const Text('20:00', style: style);
       break;
     case 4:
-      text = const Text('Los Olivos', style: style);
+      text = const Text('21:00', style: style);
       break;
     case 5:
-      text = const Text('Los Olivos', style: style);
+      text = const Text('22:00', style: style);
       break;
   }
   

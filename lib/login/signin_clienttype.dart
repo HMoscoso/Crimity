@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'Login_start.dart';
+
 
 
 class SgInClientScreen extends StatelessWidget{
@@ -33,7 +35,10 @@ class SgInClientScreen extends StatelessWidget{
                       color: Color(0xFFFFEB80),
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20.0)),
                       child: Image.asset('assets/imgs/ciudadano.png', height: height*0.15,),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                          return Login_start();
+                        },));},
                     ),
                   ),
                   SizedBox(height: 15,),

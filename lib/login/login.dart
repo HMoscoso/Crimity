@@ -26,9 +26,7 @@ class LoginScreen extends StatelessWidget{
               children: [
                 Expanded(child:
                 OutlinedButton(onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return const Login_start();
-                  },));},
+    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Login_start()));},
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
                       foregroundColor: Theme.of(context).accentColor,
@@ -39,16 +37,16 @@ class LoginScreen extends StatelessWidget{
                 const SizedBox(width: 10.0,),
                 Expanded(
                   child: ElevatedButton(
-                      onPressed: (){
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                      return SigninScreen();
-                      },));},
+                      onPressed: (){    Navigator.of(context).push(MaterialPageRoute(builder: (context)=> SigninScreen()));},
+
                       style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(10.0)),
                       padding: EdgeInsets.symmetric(vertical: 15.0)
                       ),
                       child: Text("Registrarse")),
-                )
+                ),
+
+                const SizedBox(height: 20.0,),
               ],
             )
           ],

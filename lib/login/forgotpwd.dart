@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'newpwd.dart';
+
 
 
 class ForgotpwdLogin extends StatelessWidget{
@@ -52,7 +54,10 @@ class ForgotpwdLogin extends StatelessWidget{
                         Text('Telefono movil.', style: TextStyle(color: Theme.of(context).accentColor,),),
                       ],
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                          return NewpwdLogin();
+                        },));},
                     ),
                   ),
                   SizedBox(height: 15,),
@@ -72,7 +77,10 @@ class ForgotpwdLogin extends StatelessWidget{
                         Text('Email.', style: TextStyle(color: Theme.of(context).accentColor,),),
                       ],
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                          return NewpwdLogin();
+                        },));},
                     ),
                   ),
                   SizedBox(height: 15,),
@@ -94,7 +102,10 @@ class ForgotpwdLogin extends StatelessWidget{
                             fontSize: 20.0
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                          return NewpwdLogin();
+                        },));},
                     ),
                   ),
                   SizedBox(height: 15,),

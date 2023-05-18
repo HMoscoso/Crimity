@@ -1,0 +1,15 @@
+{
+  "client_id" : "dd4797ea-18a4-4131-bade-9c1cf3fe8df9",
+  "authorization_user_agent" : "DEFAULT",
+  "redirect_uri" : "msauth://com.example.crimityapp/Sf5kfHgQK96WLr2VCzylueUlnFw%3D",
+  "account_mode" : "SINGLE",
+  "authorities" : [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "AzureADandPersonalMicrosoftAccount",
+        "tenant_id": "common"
+      }
+    }
+  ]
+}

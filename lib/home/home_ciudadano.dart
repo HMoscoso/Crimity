@@ -2,18 +2,55 @@ import 'package:crimityapp/home/perfil.dart';
 import 'package:crimityapp/map/map.dart';
 import 'package:crimityapp/map/ui/splash/splash_controller.dart';
 import 'package:crimityapp/map/ui/splash/splash_page.dart';
+import 'package:crimityapp/shareqr.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../community/comunidad.dart';
+import '../google_map/traking_page.dart';
 import '../map/ui/pages/home/home_page.dart';
 import '../map/ui/routes/pages.dart';
 import '../map/ui/routes/routes.dart';
 import '../prediccion_delito/predicciondelitos.dart';
+import '../profile/profile.dart';
 import '../profile/profile_screen.dart';
+import '../register_crime/crime_register.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
-class HomeCiudadanoScreen extends StatelessWidget{
+class HomeCiudadanoScreen extends StatefulWidget{
+
+  @override
+  State<HomeCiudadanoScreen> createState() => _HomeCiudadanoScreenState();
+}
+
+class _HomeCiudadanoScreenState extends State<HomeCiudadanoScreen> {
+
+  late Map data;
+  late List usersData;
+
+  getUser() async {
+    String urlString = "http://10.0.2.2:4000/users";
+    Uri uri = Uri.parse(urlString);
+    http.Response response =  await http.get(uri);
+    data = json.decode(response.body);
+
+    setState(() {
+      usersData = data['users'];
+    });
+
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getUser();
+  }
+
+
   @override
   Widget build(BuildContext context){
     var height = MediaQuery.of(context).size.height;
@@ -37,14 +74,14 @@ class HomeCiudadanoScreen extends StatelessWidget{
                   Row(children: <Widget>[
                     SizedBox(width: 50.0,),
                     Text(
-                      'Hola, Andre ',
+                      'Hola, Hillary ',
                       style: GoogleFonts.robotoMono(
                         fontSize: 30,
                       ),
                     ),
                     Image.asset("assets/imgs/handemoji.png", height: height * 0.05 )
                   ],),
-                  
+
 
                   const SizedBox(height: 30),
 
@@ -57,7 +94,7 @@ class HomeCiudadanoScreen extends StatelessWidget{
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20.0)),
                       child: Image.asset('assets/imgs/ubicacion.png', height: height*0.10,),
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const MapScreen()));},
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const TrackingScreen()));},
                     ),
                   ),
                   const SizedBox(height: 50),
@@ -90,7 +127,8 @@ class HomeCiudadanoScreen extends StatelessWidget{
 
                   Padding(padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: OutlinedButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CommunityScreen()));},
                       style: OutlinedButton.styleFrom(
                           elevation: 0,
                           foregroundColor: Color(0xFF4C4543),
@@ -115,7 +153,8 @@ class HomeCiudadanoScreen extends StatelessWidget{
 
                   Padding(padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: OutlinedButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CrimeRegisterScreen()));},
                       style: OutlinedButton.styleFrom(
                           elevation: 0,
                           foregroundColor: Theme.of(context).primaryColor,
@@ -139,7 +178,7 @@ class HomeCiudadanoScreen extends StatelessWidget{
 
                   SizedBox(height: 80,),
 
-                  
+
                   SizedBox(height: 15,),
                 ],
               ),
@@ -176,7 +215,7 @@ class NavigationDrawer extends StatelessWidget{
       onTap: (){
         Navigator.pop(context);
 
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const ProfileScreen()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MyProfileScreen()));
     },
     child: Column(
       children: const[
@@ -186,10 +225,10 @@ class NavigationDrawer extends StatelessWidget{
         ),
         SizedBox(height: 12),
         Text(
-          'Andre Diaz',
+          'Hillary Moscoso',
           style:TextStyle(fontSize: 28, color: Colors.black87,),
         ),
-        Text('andrediaz@gmail.com',
+        Text('hillary.moscoso3@gmail.com',
         style: TextStyle(fontSize: 16, color: Colors.black87,)),
       ],
     )
@@ -219,25 +258,33 @@ class NavigationDrawer extends StatelessWidget{
         leading: const Icon(FontAwesomeIcons.feather),
         title: const Text('Registrar delito'),
         onTap: () {
-  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const ProfileScreen()));},
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CrimeRegisterScreen()));},
       ),
       const Divider(color: Colors.black,),
       ListTile(
         leading: const Icon(FontAwesomeIcons.userTie),
         title: const Text('Mi Perfil'),
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const ProfileScreen()));},
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyProfileScreen()));},
       ),
       ListTile(
         leading: const Icon(FontAwesomeIcons.addressBook),
         title: const Text('Mi Comunidad'),
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CommunityScreen()));},
       ),
       const Divider(color: Colors.black,),
       ListTile(
         leading: const Icon(FontAwesomeIcons.chartBar),
         title: const Text('Prediccion de Delitos'),
         onTap: () {},
+      ),
+      ListTile(
+        leading: const Icon(FontAwesomeIcons.qrcode),
+        title: const Text('Compartir App'),
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> QRScreen()));
+        }
       ),
     ],
     )
