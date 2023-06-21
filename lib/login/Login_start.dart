@@ -29,7 +29,7 @@ class _Login_startState extends State<Login_start> {
 
   buscarUsuario(var email, String password) async {
 
-    String urlstr = 'http://192.168.100.4:4000/users/get/'+ email.toString() + '/' + password;
+    String urlstr = 'http://54.147.221.20:8080/users/get/'+ email.toString();
     print(email);
     print(urlstr);
     var url = Uri.parse(urlstr);

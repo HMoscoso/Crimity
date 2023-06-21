@@ -101,7 +101,7 @@ class CrimePredictScreen extends StatelessWidget{
                             child: TextField(
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: 'Pais',
+                                hintText: 'Provincia  ',
                               ),
                             ),
                           ),
